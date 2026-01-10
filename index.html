@@ -6,7 +6,7 @@
     <title>Document</title>
 
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="bootstrap.css">
+    <!-- <link rel="stylesheet" href="bootstrap.css"> -->
 </head>
 <body>
     <nav id="navbar" class="navbar fixed-top">
@@ -19,6 +19,71 @@
     </nav>
 
     <div id="load-products" class="container"></div>
+
+    <section class="card">
+            <div class="card-header">
+                <h2>
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    Add / Edit Details
+                </h2>
+            </div>
+            <div class="card-body">
+                <p class="section-lead">Keep products tidy by updating key fields, suppliers, and imagery in one pass.</p>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-barcode"></i> Product Name</label>
+                        <input type="text" class="form-control" placeholder="Wireless Headphones">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-layer-group"></i> Category</label>
+                        <select class="form-control">
+                            <option>Select category</option>
+                            <option>Electronics</option>
+                            <option>Wearables</option>
+                            <option>Accessories</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-hashtag"></i> SKU</label>
+                        <input type="text" class="form-control" placeholder="WH-9921">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-dollar-sign"></i> Unit Price</label>
+                        <input type="number" class="form-control" placeholder="129.00">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-boxes-stacked"></i> Stock</label>
+                        <input type="number" class="form-control" placeholder="52">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-truck"></i> Supplier</label>
+                        <input type="text" class="form-control" placeholder="Acme Imports">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-image"></i> Image URL</label>
+                        <input type="url" class="form-control" placeholder="https://images.unsplash.com/...">
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fa-solid fa-note-sticky"></i> Notes</label>
+                        <textarea class="form-control" placeholder="Add shelf info, warranty, etc."></textarea>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button class="btn btn-primary">
+                        <i class="fa-solid fa-floppy-disk"></i>
+                        Save Product
+                    </button>
+                    <button class="btn btn-success">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        Update Existing
+                    </button>
+                    <button class="btn btn-danger">
+                        <i class="fa-solid fa-eraser"></i>
+                        Clear Form
+                    </button>
+                </div>
+            </div>
+        </section>
 
     <script src="app.js"></script>
 </body>
