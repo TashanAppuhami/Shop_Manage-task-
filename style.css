@@ -373,3 +373,136 @@ textarea.form-control {
         align-items: stretch;
     }
 }
+
+/* ---------- Footer ---------- */
+.footer {
+    background: #0f172a; /* same tone as navbar */
+    color: #e5e7eb;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+/* ---------- Footer Container ---------- */
+.footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ---------- Footer Grid ---------- */
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+/* ---------- Footer Text ---------- */
+.footer h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    color: #f9fafb;
+}
+
+.footer .muted {
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* ---------- Footer Actions ---------- */
+.footer-actions {
+    display: flex;
+    gap: 12px;
+}
+
+/* ---------- Small Buttons ---------- */
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+/* ---------- Button Icon Spacing ---------- */
+.footer-actions i {
+    margin-right: 6px;
+}
+
+/* ---------- Popup Overlay ---------- */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.6);
+    backdrop-filter: blur(6px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 3000;
+}
+
+/* ---------- Popup Box ---------- */
+.popup {
+    background: #ffffff;
+    width: 420px;
+    max-width: 92%;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+    animation: popupIn 0.25s ease;
+}
+
+/* ---------- Header ---------- */
+.popup-header {
+    padding: 14px 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.popup-header h3 {
+    font-size: 16px;
+    font-weight: 700;
+}
+
+/* ---------- Close Button ---------- */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: #6b7280;
+}
+
+.close-btn:hover {
+    color: #dc2626;
+}
+
+/* ---------- Body ---------- */
+.popup-body {
+    padding: 18px;
+    display: grid;
+    gap: 14px;
+}
+
+/* ---------- Footer ---------- */
+.popup-footer {
+    padding: 14px 18px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* ---------- Animation ---------- */
+@keyframes popupIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+
