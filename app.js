@@ -29,7 +29,7 @@ fetch("https://dummyjson.com/products")
     })
     .catch(error => console.error('Error fetching products:', error));
 
-
+    
 
 function openProductPopup(element) {
     document.getElementById("productPopup").style.display = "flex";
@@ -62,40 +62,55 @@ function deleteProduct(id) {
 
 function addProduct() {
     const newProduct = {
-        title: document.getElementById("item-name").value,
-        category: document.getElementById("item-category").value,
-        id: document.getElementById("item-sku").value,
-        price: parseFloat(document.getElementById("item-price").value),
-        stock: parseInt(document.getElementById("item-stock").value),
-        thumbnail: document.getElementById("item-image-url").value
+        title: document.getElementById("newItem-name").value,
+        category: document.getElementById("newItem-category").value,
+        price: parseFloat(document.getElementById("newItem-price").value),
+        stock: parseInt(document.getElementById("newItem-stock").value),
+        thumbnail: document.getElementById("newItem-image-url").value,
+        notes: document.getElementById("newItem-notes").value
     };
-    
-    if (!newProduct.title || !newProduct.category || !newProduct.id || isNaN(newProduct.price) || isNaN(newProduct.stock) || !newProduct.thumbnail) {
-        alert("Please fill in all fields correctly.");
+
+    loadProduct(newProduct);
+
+    if (!newProduct.title || !newProduct.category || isNaN(newProduct.price) || isNaN(newProduct.stock) || !newProduct.thumbnail) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Missing Information',
+            text: 'Please fill in all required fields.'
+        });
         return;
     }
 
-    fetch("https://dummyjson.com/products/add", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(newProduct)
-    })
-        .then(response => response.json())
-        .then(data => {
-            console.log("Product added:", data);
-            // Optionally, refresh the product list or update the UI
-        })
-        .catch(error => console.error('Error adding product:', error));
+    JSON.stringify(localStorage.setItem('newProduct', newProduct));
 
     Swal.fire({
-        title: "Item Added Successfully!",
-        icon: "success",
-        draggable: true
-    });
+        icon: 'success',
+        title: 'Product Added',
+        text: 'The new product has been added successfully.'
+    });    
 }
 
-function clearForm() {
-    
+function loadProduct(element) {
+    body += ` <article class="product-card">
+                        <img src="${element.thumbnail}" alt="${element.title}" class="product-image">
+                        <div class="product-body">
+                            <div class="product-meta">
+                                <span class="category-badge">${element.category}</span>
+                            </div>
+                            <h3>${element.title}</h3>
+                            <p class="muted">SKU: ${element.id}</p>
+                            <div class="product-footer">
+                                <div>
+                                    <span class="price">$${element.price}</span>
+                                    <span class="stock">12 units</span>
+                                </div>
+                                <div class="action-chips">
+                                    <button class="btn btn-sm btn-secondary" onclick='openProductPopup(${JSON.stringify(element)})'>Edit</button>
+                                    <button class="btn btn-sm btn-danger" onclick="deleteProduct(${element.id})">Delete</button>
+                                </div>
+                            </div>
+                        </div>
+                    </article>`;
+
+    document.getElementById("load-products").innerHTML = body;
 }
